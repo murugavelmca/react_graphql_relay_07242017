@@ -4,10 +4,13 @@ import { globalIdField, connectionArgs, connectionFromArray } from 'graphql-rela
 import { nodeInterface } from '../utils/node-definitions';
 import { registerType } from '../utils/resolve-type';
 import { WidgetData } from '../models/widget-data'
+import { CarData } from '../models/car-data'
 
-import { Viewer, Widget } from '../models/graphql-models';
+
+import { Viewer, Widget, Car} from '../models/graphql-models';
 
 import { widgetConnectionType } from '../connection/widgets';
+import { carConnectionType } from '../connection/cars';
 
 
 
@@ -30,6 +33,18 @@ export const viewerType = new GraphQLObjectType({
 
       },
 
+    },
+    cars: {
+      type: carConnectionType,
+      args: connectionArgs,
+      resolve: (_1,args, { baseUrl }) => {
+        const carData = new CarData(baseUrl);
+        return carData.all().then(cars => { 
+          const carModels = cars.map( w=>
+          Object.assign(new Car(), w ));
+          return connectionFromArray(carModels, args);
+        });
+      }
     }
   }),
 
