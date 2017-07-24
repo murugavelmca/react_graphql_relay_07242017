@@ -13,10 +13,7 @@ export const carType = new GraphQLObjectType({
 
   fields: () => ({
     id: globalIdField('Car'),
-    name: {
-      description: 'the name of the car',
-        type: GraphQLString, 
-    },
+    
       make: { type: GraphQLString },
       model: { type: GraphQLString },
       color: { type: GraphQLString },

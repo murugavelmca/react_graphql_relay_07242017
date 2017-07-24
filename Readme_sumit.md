@@ -1,5 +1,6 @@
 ```
-  viewer {
+  query homePageQuery {
+    viewer {
     id
     widgets{
       edges{
