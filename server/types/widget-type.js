@@ -15,12 +15,12 @@ export const widgetType = new GraphQLObjectType({
     id: globalIdField('Widget'),
     name: {
       description: 'the name of the widget',
-        type: GraphQLString, 
+        type: GraphQLString
     },
       description: { type: GraphQLString },
       color: { type: GraphQLString },
       size: { type: GraphQLString },
-      qty: { type: GraphQLInt }
+      quantity: { type: GraphQLInt },
   }),
 
   interfaces: () => [nodeInterface]
@@ -32,5 +32,3 @@ const widgetData = new WidgetData('http://localhost:3010/widgets');
 registerType(Widget, widgetType, id => {
   return widgetData.one(id).then(widget => Object.assign(new Widget(),widget));
 });
-
-  //Object.assign(new Widget(), { id, message: 'Hello World', }));

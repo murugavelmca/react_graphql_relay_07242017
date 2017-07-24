@@ -10,7 +10,7 @@
           description
           color
           size
-          qty
+          quantity
         }
       }
     }

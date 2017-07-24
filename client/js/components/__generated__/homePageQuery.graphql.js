@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash e906ef0fbe3e35a9fedc3ba25726c68c
+ * @relayHash 972f3c38feacf6c1b9f55bbdfdc872ab
  */
 
 /* eslint-disable */
@@ -12,7 +12,18 @@ import type {ConcreteBatch} from 'relay-runtime';
 export type homePageQueryResponse = {|
   +viewer: ?{|
     +id: string;
-    +message: ?string;
+    +widgets: ?{|
+      +edges: ?$ReadOnlyArray<?{|
+        +node: ?{|
+          +id: string;
+          +name: ?string;
+          +description: ?string;
+          +color: ?string;
+          +size: ?string;
+          +quantity: ?number;
+        |};
+      |}>;
+    |};
   |};
 |};
 */
@@ -22,7 +33,18 @@ export type homePageQueryResponse = {|
 query homePageQuery {
   viewer {
     id
-    message
+    widgets {
+      edges {
+        node {
+          id
+          name
+          description
+          color
+          size
+          quantity
+        }
+      }
+    }
   }
 }
 */
@@ -50,10 +72,78 @@ const batch /*: ConcreteBatch*/ = {
             "storageKey": null
           },
           {
-            "kind": "ScalarField",
+            "kind": "LinkedField",
             "alias": null,
             "args": null,
-            "name": "message",
+            "concreteType": "WidgetsConnection",
+            "name": "widgets",
+            "plural": false,
+            "selections": [
+              {
+                "kind": "LinkedField",
+                "alias": null,
+                "args": null,
+                "concreteType": "WidgetsEdge",
+                "name": "edges",
+                "plural": true,
+                "selections": [
+                  {
+                    "kind": "LinkedField",
+                    "alias": null,
+                    "args": null,
+                    "concreteType": "Widget",
+                    "name": "node",
+                    "plural": false,
+                    "selections": [
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "args": null,
+                        "name": "id",
+                        "storageKey": null
+                      },
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "args": null,
+                        "name": "name",
+                        "storageKey": null
+                      },
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "args": null,
+                        "name": "description",
+                        "storageKey": null
+                      },
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "args": null,
+                        "name": "color",
+                        "storageKey": null
+                      },
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "args": null,
+                        "name": "size",
+                        "storageKey": null
+                      },
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "args": null,
+                        "name": "quantity",
+                        "storageKey": null
+                      }
+                    ],
+                    "storageKey": null
+                  }
+                ],
+                "storageKey": null
+              }
+            ],
             "storageKey": null
           }
         ],
@@ -88,10 +178,78 @@ const batch /*: ConcreteBatch*/ = {
             "storageKey": null
           },
           {
-            "kind": "ScalarField",
+            "kind": "LinkedField",
             "alias": null,
             "args": null,
-            "name": "message",
+            "concreteType": "WidgetsConnection",
+            "name": "widgets",
+            "plural": false,
+            "selections": [
+              {
+                "kind": "LinkedField",
+                "alias": null,
+                "args": null,
+                "concreteType": "WidgetsEdge",
+                "name": "edges",
+                "plural": true,
+                "selections": [
+                  {
+                    "kind": "LinkedField",
+                    "alias": null,
+                    "args": null,
+                    "concreteType": "Widget",
+                    "name": "node",
+                    "plural": false,
+                    "selections": [
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "args": null,
+                        "name": "id",
+                        "storageKey": null
+                      },
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "args": null,
+                        "name": "name",
+                        "storageKey": null
+                      },
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "args": null,
+                        "name": "description",
+                        "storageKey": null
+                      },
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "args": null,
+                        "name": "color",
+                        "storageKey": null
+                      },
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "args": null,
+                        "name": "size",
+                        "storageKey": null
+                      },
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "args": null,
+                        "name": "quantity",
+                        "storageKey": null
+                      }
+                    ],
+                    "storageKey": null
+                  }
+                ],
+                "storageKey": null
+              }
+            ],
             "storageKey": null
           }
         ],
@@ -99,7 +257,7 @@ const batch /*: ConcreteBatch*/ = {
       }
     ]
   },
-  "text": "query homePageQuery {\n  viewer {\n    id\n    message\n  }\n}\n"
+  "text": "query homePageQuery {\n  viewer {\n    id\n    widgets {\n      edges {\n        node {\n          id\n          name\n          description\n          color\n          size\n          quantity\n        }\n      }\n    }\n  }\n}\n"
 };
 
 module.exports = batch;
