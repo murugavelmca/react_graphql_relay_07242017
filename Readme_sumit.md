@@ -1,3 +1,7 @@
+* http://localhost:3000/ - Web
+* http://localhost:3020/graphql - Graphql
+* http://localhost:3010/ - Rest
+
 ```
   query homePageQuery {
     viewer {
@@ -26,7 +30,6 @@ query homePageQuery {
       edges{
         node{
           id
-          name
           make
           model
           color

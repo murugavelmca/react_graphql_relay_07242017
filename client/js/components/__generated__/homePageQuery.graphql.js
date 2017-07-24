@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 972f3c38feacf6c1b9f55bbdfdc872ab
+ * @relayHash 55d720d1b317863f0b3642be83ebb872
  */
 
 /* eslint-disable */
@@ -24,6 +24,18 @@ export type homePageQueryResponse = {|
         |};
       |}>;
     |};
+    +cars: ?{|
+      +edges: ?$ReadOnlyArray<?{|
+        +node: ?{|
+          +id: string;
+          +make: ?string;
+          +model: ?string;
+          +color: ?string;
+          +price: ?number;
+          +year: ?number;
+        |};
+      |}>;
+    |};
   |};
 |};
 */
@@ -42,6 +54,18 @@ query homePageQuery {
           color
           size
           quantity
+        }
+      }
+    }
+    cars {
+      edges {
+        node {
+          id
+          make
+          model
+          color
+          price
+          year
         }
       }
     }
@@ -135,6 +159,81 @@ const batch /*: ConcreteBatch*/ = {
                         "alias": null,
                         "args": null,
                         "name": "quantity",
+                        "storageKey": null
+                      }
+                    ],
+                    "storageKey": null
+                  }
+                ],
+                "storageKey": null
+              }
+            ],
+            "storageKey": null
+          },
+          {
+            "kind": "LinkedField",
+            "alias": null,
+            "args": null,
+            "concreteType": "CarsConnection",
+            "name": "cars",
+            "plural": false,
+            "selections": [
+              {
+                "kind": "LinkedField",
+                "alias": null,
+                "args": null,
+                "concreteType": "CarsEdge",
+                "name": "edges",
+                "plural": true,
+                "selections": [
+                  {
+                    "kind": "LinkedField",
+                    "alias": null,
+                    "args": null,
+                    "concreteType": "Car",
+                    "name": "node",
+                    "plural": false,
+                    "selections": [
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "args": null,
+                        "name": "id",
+                        "storageKey": null
+                      },
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "args": null,
+                        "name": "make",
+                        "storageKey": null
+                      },
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "args": null,
+                        "name": "model",
+                        "storageKey": null
+                      },
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "args": null,
+                        "name": "color",
+                        "storageKey": null
+                      },
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "args": null,
+                        "name": "price",
+                        "storageKey": null
+                      },
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "args": null,
+                        "name": "year",
                         "storageKey": null
                       }
                     ],
@@ -251,13 +350,88 @@ const batch /*: ConcreteBatch*/ = {
               }
             ],
             "storageKey": null
+          },
+          {
+            "kind": "LinkedField",
+            "alias": null,
+            "args": null,
+            "concreteType": "CarsConnection",
+            "name": "cars",
+            "plural": false,
+            "selections": [
+              {
+                "kind": "LinkedField",
+                "alias": null,
+                "args": null,
+                "concreteType": "CarsEdge",
+                "name": "edges",
+                "plural": true,
+                "selections": [
+                  {
+                    "kind": "LinkedField",
+                    "alias": null,
+                    "args": null,
+                    "concreteType": "Car",
+                    "name": "node",
+                    "plural": false,
+                    "selections": [
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "args": null,
+                        "name": "id",
+                        "storageKey": null
+                      },
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "args": null,
+                        "name": "make",
+                        "storageKey": null
+                      },
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "args": null,
+                        "name": "model",
+                        "storageKey": null
+                      },
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "args": null,
+                        "name": "color",
+                        "storageKey": null
+                      },
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "args": null,
+                        "name": "price",
+                        "storageKey": null
+                      },
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "args": null,
+                        "name": "year",
+                        "storageKey": null
+                      }
+                    ],
+                    "storageKey": null
+                  }
+                ],
+                "storageKey": null
+              }
+            ],
+            "storageKey": null
           }
         ],
         "storageKey": null
       }
     ]
   },
-  "text": "query homePageQuery {\n  viewer {\n    id\n    widgets {\n      edges {\n        node {\n          id\n          name\n          description\n          color\n          size\n          quantity\n        }\n      }\n    }\n  }\n}\n"
+  "text": "query homePageQuery {\n  viewer {\n    id\n    widgets {\n      edges {\n        node {\n          id\n          name\n          description\n          color\n          size\n          quantity\n        }\n      }\n    }\n    cars {\n      edges {\n        node {\n          id\n          make\n          model\n          color\n          price\n          year\n        }\n      }\n    }\n  }\n}\n"
 };
 
 module.exports = batch;

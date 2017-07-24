@@ -25,6 +25,18 @@ export class HomePage extends React.Component {
                   }
                 }
               }
+              cars{
+                edges{
+                  node{
+                    id
+                    make
+                    model
+                    color
+                    price
+                    year
+                  }
+                }
+              }
             }
           }
         `}
@@ -38,7 +50,8 @@ export class HomePage extends React.Component {
             </div>;
 
           } else if (props) {
-            //console.log(props.viewer.widgets.edges.length);
+            console.log("widgets="+props.viewer.widgets.edges.length);
+            console.log("cars="+props.viewer.cars.edges.length);
              return <div>
               <table>
                 <thead>
@@ -61,6 +74,29 @@ export class HomePage extends React.Component {
                     </tr>)}
                 </tbody>
               </table>
+
+              <table>
+                <thead>
+                  <tr>
+                    <th>Make</th>
+                    <th>Model</th>
+                    <th>Color</th>
+                    <th>Price</th>
+                    <th>Year</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {props.viewer.cars.edges.map(edge =>
+                    <tr key={edge.node.id}>
+                      <td>{edge.node.make}</td>
+                      <td>{edge.node.model}</td>
+                      <td>{edge.node.color}</td>
+                      <td>{edge.node.price}</td>
+                      <td>{edge.node.year}</td>
+                    </tr>)}
+                </tbody>
+              </table>
+
             </div>;
 
           } else {
