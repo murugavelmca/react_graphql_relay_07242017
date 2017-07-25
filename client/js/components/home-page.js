@@ -17,7 +17,7 @@ export class HomePage extends React.Component {
               id
               ...widgetsTable_viewer
               ...carsTable_viewer
-              }              
+            }
           }
         `}
         variables={{}}
@@ -32,10 +32,10 @@ export class HomePage extends React.Component {
           } else if (props) {
             //console.log("widgets="+props.viewer.widgets.edges.length);
             //console.log("cars="+props.viewer.cars.edges.length);
-             return <div>             
-               <WidgetsTableContainer viewer={props.viewer} />
+            return <div>             
+              <WidgetsTableContainer viewer={props.viewer} />
               <CarsTableContainer viewer={props.viewer} />
-              </div>;
+            </div>;
 
           } else {
             return <div>Loading Home Page...</div>;

@@ -10,29 +10,28 @@ export class CarsTable extends React.Component {
     };
     render(){
       console.log('cars-table', this.props.viewer.cars);
-          return <table>
-                <thead>
-                  <tr>
-                    <th>id</th>
-                    <th>Make</th>
-                    <th>Model</th>
-                    <th>Color</th>
-                    <th>Price</th>
-                    <th>Year</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {this.props.viewer.cars.edges.map(edge =>
-                    <tr key={edge.node.id}>
-                      <td>{edge.node.make}</td>
-                      <td>{edge.node.model}</td>
-                      <td>{edge.node.color}</td>
-                      <td>{edge.node.price}</td>
-                      <td>{edge.node.year}</td>
-                    </tr>)}
-                </tbody>
-              </table>;
-  }
+      return <table>
+        <thead>
+          <tr>
+            <th>Make</th>
+            <th>Model</th>
+            <th>Color</th>
+            <th>Price</th>
+            <th>Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          {this.props.viewer.cars.edges.map(edge =>
+            <tr key={edge.node.id}>
+              <td>{edge.node.make}</td>
+              <td>{edge.node.model}</td>
+              <td>{edge.node.color}</td>
+              <td>{edge.node.price}</td>
+              <td>{edge.node.year}</td>
+            </tr>)}
+        </tbody>
+      </table>;
+    }
 }
 
 export const CarsTableContainer = createFragmentContainer(CarsTable, graphql`
