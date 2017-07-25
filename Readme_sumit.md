@@ -124,3 +124,32 @@ fragment carsTable_viewer on Viewer {
   }
 }
 ```
+```
+query homePageQuery {
+            viewer {
+              id
+              ...widgetsTable_viewer
+            }
+          }
+          
+fragment widgetsTable_viewer on Viewer{
+            widgets(last: 2){
+              edges{
+                node{
+                  id
+                  ...widgetsViewRow_widget
+                }
+              }
+            }
+          }
+
+fragment widgetsViewRow_widget on Widget {
+        id
+        name
+        description
+        color
+        size
+        quantity
+  }
+          
+```
