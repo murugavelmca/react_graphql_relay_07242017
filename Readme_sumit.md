@@ -64,7 +64,29 @@ query homePageQuery {
   }
 }
 ```
-
+```
+query homePageQuery {
+            viewer {
+              id
+              ...carsTable_viewer
+            }
+          }
+         
+fragment carsTable_viewer on Viewer {
+  cars (first: 100){
+    edges{
+      node{
+        id
+        make
+        model
+        color
+        price
+        year
+      }
+    }
+  }
+}
+```
 ```
 query homePageQuery {
             viewer {

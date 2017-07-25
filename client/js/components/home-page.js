@@ -24,6 +24,7 @@ export class HomePage extends React.Component {
         render={({ error, props, retry }) => {
           
           if (error) {
+            console.log(error);
             return <div>
               <h1>Error Loading</h1>
               <button type="button" onClick={() => retry()}>Retry</button>
