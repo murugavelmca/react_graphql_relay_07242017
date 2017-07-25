@@ -14,7 +14,8 @@
     "client": "concurrently \"npm run relay\" \"webpack-dev-server\"",
     "rest": "json-server --watch --port 3010 db.json",
     "relay": "relay-compiler --watch --src ./client/js/ --schema ./schema.graphql",
-    "relay:once": "relay-compiler --src ./client/js/ --schema ./schema.graphql"
+    "relay:once": "relay-compiler --src ./client/js/ --schema ./schema.graphql",
+    "graphql-relay": "npm run server-init && npm run relay:once"
   },
   "repository": {
     "type": "git",

@@ -67,6 +67,14 @@
       "size": "tiny",
       "quantity": 10,
       "ownerId": 3
+    },
+    {
+      "name": "a",
+      "description": "a",
+      "color": "a",
+      "size": "a",
+      "quantity": 6,
+      "id": 5
     }
   ],
   "people": [
