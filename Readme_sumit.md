@@ -203,3 +203,42 @@ fragment carsViewRow_car on Car {
         color
   }         
   ```
+  * Mutation - Insert
+  ```
+  mutation insertWidgetMutation(
+  $input: InsertWidgetInput!
+) {
+  insertWidget(input: $input) {
+    viewer {
+      id
+    }
+    widgetEdge {
+      node {
+        __typename
+        id
+        name
+        description
+        color
+        size
+        quantity
+      }
+      cursor
+    }
+  }
+}
+```
+  * variable
+  ```
+  {
+    "input": {
+        "widget": {
+            "name": "b",
+            "description": "b",
+            "color": "b",
+            "size": "b",
+            "quantity": 4
+        },
+        "clientMutationId": "0"
+    }
+}
+```
