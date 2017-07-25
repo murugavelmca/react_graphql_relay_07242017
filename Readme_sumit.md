@@ -40,4 +40,65 @@ query homePageQuery {
     }
     
   }
-}```
+}
+```
+```
+query homePageQuery {
+            viewer {
+              id
+              ...widgetsTable_viewer
+            }
+          }
+          fragment widgetsTable_viewer on Viewer {
+  widgets (first: 100) {
+    edges{
+      node{
+        id
+        name
+        description
+        color
+        size
+        quantity
+      }
+    }
+  }
+}
+```
+
+```
+query homePageQuery {
+            viewer {
+              id
+              ...widgetsTable_viewer
+              ...carsTable_viewer
+            }
+          }
+          fragment widgetsTable_viewer on Viewer {
+  widgets (first: 100) {
+    edges{
+      node{
+        id
+        name
+        description
+        color
+        size
+        quantity
+      }
+    }
+  }
+}
+fragment carsTable_viewer on Viewer {
+  cars (first: 100){
+    edges{
+      node{
+        id
+        make
+        model
+        color
+        price
+        year
+      }
+    }
+  }
+}
+```
