@@ -1,6 +1,7 @@
 import React from 'react';
-import { createFragmentContainer, graphql } from 'react-relay';
 import PropTypes from 'prop-types';
+import { createFragmentContainer, graphql } from 'react-relay';
+import { CarsViewRowContainer} from './cars-view-row';
 
 export class CarsTable extends React.Component {
   
@@ -22,13 +23,8 @@ export class CarsTable extends React.Component {
         </thead>
         <tbody>
           {this.props.viewer.cars.edges.map(edge =>
-            <tr key={edge.node.id}>
-              <td>{edge.node.make}</td>
-              <td>{edge.node.model}</td>
-              <td>{edge.node.color}</td>
-              <td>{edge.node.price}</td>
-              <td>{edge.node.year}</td>
-            </tr>)}
+            <CarsViewRowContainer key={edge.node.id} car={edge.node} />
+          )}
         </tbody>
       </table>;
     }
@@ -40,11 +36,7 @@ fragment carsTable_viewer on Viewer {
     edges{
       node{
         id
-        make
-        model
-        color
-        price
-        year
+        ...carsViewRow_car
       }
     }
   }

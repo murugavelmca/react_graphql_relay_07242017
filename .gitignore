@@ -44,3 +44,9 @@ prep
 server-dist
 client-dist
 schema.graphql
+/client/js/components/__generated__/carsTable_viewer.graphql.js
+/client/js/components/__generated__/homePageQuery.graphql.js
+client/js/components/__generated__/*
+/client/js/components/__generated__/widgetsTable_viewer.graphql.js
+/client/js/components/__generated__/widgetsViewRow_widget.graphql.js
+/.idea/workspace.xml

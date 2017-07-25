@@ -153,3 +153,53 @@ fragment widgetsViewRow_widget on Widget {
   }
           
 ```
+```
+query homePageQuery {
+            viewer {
+              id
+              ...widgetsTable_viewer
+              ...carsTable_viewer
+            }
+          }
+          
+fragment widgetsTable_viewer on Viewer{
+            widgets(last: 2){
+              edges{
+                node{
+                  id
+                  ...widgetsViewRow_widget
+                }
+              }
+            }
+          }
+          
+
+fragment widgetsViewRow_widget on Widget {
+        id
+        name
+        description
+        color
+        size
+        quantity
+  }
+  
+ fragment carsTable_viewer on Viewer {
+  cars (first: 100){
+    edges{
+      node{
+        id
+        ...carsViewRow_car
+      }
+    }
+  }
+}
+
+fragment carsViewRow_car on Car {
+        id
+        model
+        make
+        price
+        year
+        color
+  }         
+  ```
