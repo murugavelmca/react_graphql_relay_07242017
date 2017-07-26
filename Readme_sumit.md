@@ -228,7 +228,7 @@ fragment carsViewRow_car on Car {
 }
 ```
 * Mutation - Insert - variable
-  ```
+```
   {
     "input": {
         "widget": {
