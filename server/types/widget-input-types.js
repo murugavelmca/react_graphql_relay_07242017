@@ -14,3 +14,18 @@ export const insertWidgetType = new GraphQLInputObjectType({
   }),
 
 });
+
+export const updateWidgetType = new GraphQLInputObjectType({
+  
+  name: 'UpdateWidget',
+
+  fields: () => ({
+    id: { type: GraphQLString },
+    name: { type: GraphQLString },
+    description: { type: GraphQLString },
+    color: { type: GraphQLString },
+    size: { type: GraphQLString },
+    quantity: { type: GraphQLInt },
+  }),
+
+});
