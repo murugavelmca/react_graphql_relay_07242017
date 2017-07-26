@@ -1,5 +1,5 @@
 import { GraphQLString } from 'graphql';
-import { mutationWithClientMutationId, offsetToCursor } from 'graphql-relay';
+import { mutationWithClientMutationId, fromGlobalId } from 'graphql-relay';
 
 import { Viewer, Widget } from '../models/graphql-models';
 import { viewerType } from './viewer-type';
@@ -24,6 +24,9 @@ export const updateWidgetMutationType = mutationWithClientMutationId({
   }),
 
   mutateAndGetPayload: ({ widget }, { baseUrl }) => {
+    const localWidgetId = fromGlobalId(widget.id).id;
+    widget.id = localWidgetId ;
+    console.log("localWidgetId", localWidgetId);
     const widgetData = new WidgetData(baseUrl);
     return widgetData.update(widget).then(widget => Object.assign(new Widget(), widget));
   },
