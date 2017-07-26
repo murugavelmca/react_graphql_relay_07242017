@@ -227,7 +227,7 @@ fragment carsViewRow_car on Car {
   }
 }
 ```
-  * variable
+* Mutation - Insert - variable
   ```
   {
     "input": {
@@ -239,6 +239,39 @@ fragment carsViewRow_car on Car {
             "quantity": 4
         },
         "clientMutationId": "0"
+    }
+}
+```
+* Mutation - DELETE
+```
+mutation insertWidgetMutation(
+  $input: InsertWidgetInput!
+) {
+  insertWidget(input: $input) {
+    viewer {
+      id
+    }
+    widgetEdge {
+      node {
+        __typename
+        id
+        name
+        description
+        color
+        size
+        quantity
+      }
+      cursor
+    }
+  }
+}
+```
+* Mutation - DELETE - variable
+```
+{
+    "input": {
+        "widgetId": "V2lkZ2V0OjU=",
+        "clientMutationId": "4"
     }
 }
 ```

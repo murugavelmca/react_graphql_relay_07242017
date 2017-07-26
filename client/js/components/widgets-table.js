@@ -11,6 +11,7 @@ export class WidgetsTable extends React.Component {
 
  static propTypes = {
    viewer: PropTypes.object,
+   onDeleteWidget: PropTypes.func,
  };
  render(){
    console.log('widgets-table', this.props.viewer.widgets);
@@ -26,7 +27,8 @@ export class WidgetsTable extends React.Component {
      </thead>
      <tbody>
        {this.props.viewer.widgets.edges.map(edge =>
-         <WidgetsViewRowContainer key={edge.node.id} widget={edge.node} />
+         <WidgetsViewRowContainer key={edge.node.id} widget={edge.node} 
+         onDeleteWidget={this.props.onDeleteWidget} />
        )}
      </tbody>
    </table>;

@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { createFragmentContainer, graphql } from 'react-relay';
 
-import { insertWidget } from '../mutations/insert-widget';
+import { insertWidget as relayInsertWidget } from '../mutations/insert-widget';
+import { deleteWidget as relayDeleteWidget } from '../mutations/delete-widget';
 
 import { WidgetsTableContainer } from './widgets-table';
 import { WidgetForm } from './widget-form';
@@ -14,23 +15,27 @@ export class WidgetHome extends React.Component {
     relay: PropTypes.object,
   };
 
-  saveWidget = widget => {
-
-    console.log(this.props);
-
-    insertWidget(
+  reactInsertWidget = widget => {
+    relayInsertWidget(
       this.props.relay.environment,
       widget,
       this.props.viewer.id,
     );
-
   };
+
+  reactDeleteWidget = widgetId => {
+    relayDeleteWidget(
+      this.props.relay.environment,
+      widgetId,
+      this.props.viewer.id,
+    );
+  }
 
   render() {
 
     return <div>
-      <WidgetsTableContainer viewer={this.props.viewer} />
-      <WidgetForm onSaveWidget={this.saveWidget} />
+      <WidgetsTableContainer viewer={this.props.viewer} onDeleteWidget={this.reactDeleteWidget} />
+      <WidgetForm onSaveWidget={this.reactInsertWidget} />
     </div>;
 
   }
@@ -45,5 +50,4 @@ export const WidgetHomeContainer = createFragmentContainer(
     }
   `,
 );
-
 

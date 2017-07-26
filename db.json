@@ -75,38 +75,6 @@
       "size": "tiny",
       "quantity": 10,
       "ownerId": 3
-    },
-    {
-      "name": "a",
-      "description": "a",
-      "color": "a",
-      "size": "a",
-      "quantity": 6,
-      "id": 5
-    },
-    {
-      "name": "b",
-      "description": "b",
-      "color": "b",
-      "size": "b",
-      "quantity": 4,
-      "id": 6
-    },
-    {
-      "name": "b",
-      "description": "b",
-      "color": "b",
-      "size": "b",
-      "quantity": 4,
-      "id": 7
-    },
-    {
-      "name": "c",
-      "description": "c",
-      "color": "black",
-      "size": "10",
-      "quantity": 0,
-      "id": 8
     }
   ],
   "people": [
