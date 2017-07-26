@@ -15,14 +15,6 @@
       "color": "red",
       "price": 123,
       "id": 2
-    },
-    {
-      "make": "t",
-      "model": "t",
-      "color": "t",
-      "price": "t",
-      "year": 2017,
-      "id": 3
     }
   ],
   "owners": [
@@ -75,6 +67,14 @@
       "size": "tiny",
       "quantity": 10,
       "ownerId": 3
+    },
+    {
+      "name": "q",
+      "description": "q",
+      "color": "q",
+      "size": "q",
+      "quantity": 1,
+      "id": 5
     }
   ],
   "people": [

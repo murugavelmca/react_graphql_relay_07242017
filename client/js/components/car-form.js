@@ -31,8 +31,8 @@ export class CarForm extends React.Component {
     this.props.onSaveCar({ ...this.state });
 
     this.setState({
-      make: '',
       model: '',
+      make: '',
       color: '',
       price: '',
       year: '',

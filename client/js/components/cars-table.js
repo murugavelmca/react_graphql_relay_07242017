@@ -8,14 +8,15 @@ export class CarsTable extends React.Component {
 
     static propTypes = {
       viewer: PropTypes.object,
+      onDeleteCar: PropTypes.func,
     };
     render(){
       console.log('cars-table', this.props.viewer.cars);
       return <table>
         <thead>
           <tr>
-            <th>Make</th>
             <th>Model</th>
+            <th>Make</th>
             <th>Color</th>
             <th>Price</th>
             <th>Year</th>
@@ -23,7 +24,8 @@ export class CarsTable extends React.Component {
         </thead>
         <tbody>
           {this.props.viewer.cars.edges.map(edge =>
-            <CarsViewRowContainer key={edge.node.id} car={edge.node} />
+            <CarsViewRowContainer key={edge.node.id} car={edge.node} 
+            onDeleteCar={this.props.onDeleteCar} />
           )}
         </tbody>
       </table>;

@@ -275,3 +275,32 @@ mutation insertWidgetMutation(
     }
 }
 ```
+* Mutation - DELETE 
+```
+mutation deleteCarMutation(
+  $input: DeleteCarInput!
+) {
+  deleteCar(input: $input) {
+    viewer {
+      id
+    }
+    car {
+      id
+      model
+      make
+      color
+      price
+      year
+    }
+  }
+}
+```
+* Mutation - DELETE Car - variable
+```
+{
+    "input": {
+        "carId": "Q2FyOjQ=",
+        "clientMutationId": "0"
+    }
+}
+```
