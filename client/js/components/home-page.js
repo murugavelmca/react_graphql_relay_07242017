@@ -3,8 +3,9 @@ import { QueryRenderer, graphql } from 'react-relay';
 
 import { environment } from '../environment';
 import { WidgetHomeContainer } from './widget-home';
+import { CarHomeContainer } from './car-home';
 
-import { CarsTableContainer } from './cars-table';
+//import { CarsTableContainer } from './cars-table';
 
 export class HomePage extends React.Component {
 
@@ -17,7 +18,7 @@ export class HomePage extends React.Component {
             viewer {
               id
               ...widgetHome_viewer
-              ...carsTable_viewer
+              ...carHome_viewer
             }
           }
         `}
@@ -36,7 +37,7 @@ export class HomePage extends React.Component {
             //console.log("cars="+props.viewer.cars.edges.length);
             return <div>             
               <WidgetHomeContainer viewer={props.viewer} />
-              <CarsTableContainer viewer={props.viewer} />
+              <CarHomeContainer viewer={props.viewer} />
             </div>;
 
           } else {
