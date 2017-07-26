@@ -242,7 +242,7 @@ fragment carsViewRow_car on Car {
     }
 }
 ```
-* Mutation - DELETE
+  * Mutation - DELETE
 ```
 mutation insertWidgetMutation(
   $input: InsertWidgetInput!
@@ -266,7 +266,7 @@ mutation insertWidgetMutation(
   }
 }
 ```
-* Mutation - DELETE - variable
+  * Mutation - DELETE - variable
 ```
 {
     "input": {
@@ -275,7 +275,7 @@ mutation insertWidgetMutation(
     }
 }
 ```
-* Mutation - DELETE 
+  * Mutation - DELETE 
 ```
 mutation deleteCarMutation(
   $input: DeleteCarInput!
@@ -295,7 +295,7 @@ mutation deleteCarMutation(
   }
 }
 ```
-* Mutation - DELETE Car - variable
+  * Mutation - DELETE Car - variable
 ```
 {
     "input": {
